@@ -163,7 +163,7 @@
 					<div class=" fragment">
 						<h4><span>JavaScript</span></h4>
 						<pre><code class="smaller-code hljs stan visible" data-fragment-index="0"  data-noescape="" data-line-numbers="2-4">
-  let <span class="hljs-name">myCanvas</span> = document.getElementById(<span class="hljs-string">'my-canvas'</span>);
+  const <span class="hljs-name">myCanvas</span> = document.getElementById(<span class="hljs-string">'my-canvas'</span>);
   <span class="hljs-name">myCanvas</span>.width = <span class="hljs-number">300</span>; <span class="hljs-comment">// myCanvas.width = windows.innerWidth;</span>
   <span class="hljs-name">myCanvas</span>.height = <span class="hljs-number">100</span>;
 					
@@ -192,10 +192,10 @@
 				<h2>Context</h2>
 				<h4><span>Canvas​Rendering​Context2D</span></h4>
 				<pre><code class="smaller-code hljs stan visible" data-fragment-index="0"  data-noescape="" data-line-numbers="2-5">
-  let <span class="hljs-name">myCanvas</span> = document.getElementById(<span class="hljs-string">'my-canvas'</span>);
+  const <span class="hljs-name">myCanvas</span> = document.getElementById(<span class="hljs-string">'my-canvas'</span>);
   <span class="hljs-name">myCanvas</span>.width = <span class="hljs-number">300</span>; <span class="hljs-comment">// myCanvas.width = windows.innerWidth;</span>
   <span class="hljs-name">myCanvas</span>.height = <span class="hljs-number">100</span>;
-  <span class="fragment">let <span class="hljs-name">ctx</span> = <span class="hljs-name">myCanvas</span>.getContext(<span class="hljs-string">'2d'</span>);</span>
+  <span class="fragment">const <span class="hljs-name">ctx</span> = <span class="hljs-name">myCanvas</span>.getContext(<span class="hljs-string">'2d'</span>);</span>
 						
 						</code></pre>
 				<h4 class="fragment"><span>Let's draw it </span></h4>
@@ -300,7 +300,7 @@
 					<h4><span>Using SVG paths</span></h4>
 					<div style="text-align: left; height: 400px; width: 1000px;">
 						<pre><code class="smaller-code hljs stan visible"   data-noescape="" data-line-numbers="2, 3">
-  let <span class="hljs-name">d</span> = new Path2D(<span class="hljs-string">'M 10 10 h 80 v 80 h -80 Z'</span>);
+  const <span class="hljs-name">d</span> = new Path2D(<span class="hljs-string">'M 10 10 h 80 v 80 h -80 Z'</span>);
   <span class="hljs-name">ctx</span>.fill(<span class="hljs-name">d</span>);
 	
 						</code></pre>
