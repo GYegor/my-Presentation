@@ -1,0 +1,347 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/solarized.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>
+					&lt<span>canvas</span>&gt
+				</h1>
+				<h3>Yahor Hlushanko</h3>
+			</section>
+			<section>
+				<section data-background-transition="zoom">
+					<h2>Canvas</h2>
+					<ul class="my-style">
+						<li class="fragment">History</li>
+						<li class="fragment">Usage
+						</li>
+						<li class="fragment">What is canvas?
+						</li>
+						<li class="fragment">Basics:
+						</li>
+						<ul>
+							<li class="fragment">Create/resize canvas
+							</li>
+							<li class="fragment">Context
+							</li>
+							<li class="fragment">Drowing simple shapes
+							</li>
+							<li class="fragment">Path2d object
+							</li>
+						</ul>
+
+						<li class="fragment">Q&A<span> /&gt</span></li>
+					</ul>
+					<aside class="notes">
+						This slide has fragments which are also stepped through in the notes window.
+					</aside>
+				</section>
+			</section>
+			<section>
+				<section>
+
+					<h2>History</h2>
+					<p class="fragment"><span>2004</span> <strong>Apple</strong>, <strong>WebKit</strong> component for the
+						<strong>OS X Dashboard</strong> and <strong>Safary</strong> browser
+					</p>
+					<p class="fragment"><span>2005 – 2006</span>– adopted in <strong>Gecko</strong> and <strong>Opera</strong>
+						browsers
+					</p>
+					<p class="fragment">Web Hypertext Application Technology Working Group (<strong>WHATWG</strong>)
+						standardized
+						canvas for use on
+						new proposed specifications for next generation web technologies.
+					</p>
+					<p class="fragment"><span>28.10.2014</span> - <strong>HTML5</strong> new element <span>&lt canvas &gt</span>
+					</p>
+					<aside class="notes">
+						This slide has fragments which are also stepped through in the notes window.
+					</aside>
+				</section>
+				<section>
+					<h2>History</h2>
+					<h4><span>Browser compatibility</span></h4>
+					<img class="image" src="./assets/images/browsers.JPG" style="border: none;" alt="browsers">
+				</section>
+			</section>
+			<section>
+				<section class="particles">
+					<h2>Usage</h2>
+				</section>
+				<section class="particles">
+
+					<h4><span>Animations</span></h4>
+					<img class="image" src="./assets/images/codepen.gif" height="300" style="margin: 0 0; border: none;"
+						alt="codepen">
+
+				</section>
+
+				<section class="particles">
+					<h4><span>Cool backgrounds</span></h4>
+					<div>
+						<canvas id="canvas" width="700" height="400" !important></canvas>
+						<p style="float: right; font-size: 0.5em; margin: 0;"><a
+								href="https://codepen.io/mladen___/pen/gbvqBo">https://codepen.io/mladen___/pen/gbvqBo</a></p>
+					</div>
+				</section>
+
+				<section class="particles">
+					<h4><span>Games</span></h4>
+
+					<img class="image" src="./assets/images/dino.png" style="margin: 0 0; border: none;" alt="dino">
+				</section>
+
+
+
+				<section class="particles">
+					<div>
+						<h4><span>Graphic editors - Piskel</span></h4>
+						<img class="image" src="./assets/images/piskel-scr.png" style="height: 400px; margin: 0 0; border: none;"
+							alt="piskel">
+					</div>
+				</section>
+
+				<section class="particles">
+					<h4><span>Graph & chart libraries</span></h4>
+					<div>
+						<img class="image" src="./assets/images/chartjs.jpg" style="height: 2.5em; border: none;" alt="chartjs">
+						<img class="image" src="./assets/images/graph.jpg" style="height: 2.5em; border: none;" alt="graph">
+					</div>
+					<div style="display: flex; align-content: flex-start; justify-content: center;">
+						<img class="image" src="./assets/images/canvasjs.png"
+							style="height: 2.5em; border: none; border: 5px solid white; margin: 5px;" alt="canvasjs">
+						<img class="image" src="./assets/images/cjs_paartners.jpg"
+							style="height: 7.5em;  margin: 5px; border: none;" alt="graph">
+					</div>
+				</section>
+			</section>
+
+			<section>
+				<h2>What is canvas?</h2>
+				<img class="image" src="./assets/images/grid.png" height="300" style="margin: 0 0; border: none;" alt="canvas">
+			</section>
+
+
+
+			<section>
+				<section>
+					<h2>Create/resize canvas</h2>
+					<div class=" fragment">
+						<h4><span>HTML5</span></h4>
+						<pre><code class="smaller-code hljs stan visible" data-fragment-index="0" data-line-numbers="2,4">
+  <canvas id="my-canvas" width="200" height="200">
+    Your browser does not support HTML5 Canvas.
+  </canvas>
+	
+				</code></pre>
+					</div>
+					<div class=" fragment">
+						<h4><span>JavaScript</span></h4>
+						<pre><code class="smaller-code hljs stan visible" data-fragment-index="0"  data-noescape="" data-line-numbers="2-4">
+  let <span class="hljs-name">myCanvas</span> = document.getElementById(<span class="hljs-string">'my-canvas'</span>);
+  <span class="hljs-name">myCanvas</span>.width = <span class="hljs-number">300</span>; <span class="hljs-comment">// myCanvas.width = windows.innerWidth;</span>
+  <span class="hljs-name">myCanvas</span>.height = <span class="hljs-number">100</span>;
+					
+					</code></pre>
+					</div>
+				</section>
+				<section>
+					<h2>Create/resize canvas</h2>
+					<div>
+						<h4><span>CSS</span></h4>
+						<pre><code class="smaller-code hljs stan visible" data-fragment-index="0"  data-noescape="" data-line-numbers="2-8">
+  <span class="hljs-name">.paint-canvas</span><span class="hljs-curv"> {</span>
+    <span class="hljs-rule">width</span>: 300px;  
+    <span class="hljs-rule">height</span>: 100px;  
+    <span class="hljs-rule">border</span>: 1px<span class="hljs-value"> solid black</span>;  
+    <span class="hljs-rule">display</span>: <span class="hljs-value">block</span>;
+    <span class="hljs-rule">margin</span>: 1rem;
+  <span class="hljs-curv">{</span>
+			
+						</code></pre>
+					</div>
+				</section>
+
+			</section>
+			<section>
+				<h2>Context</h2>
+				<h4><span>ContextRenderingContent2D</span></h4>
+				<pre><code class="smaller-code hljs stan visible" data-fragment-index="0"  data-noescape="" data-line-numbers="2-5">
+  let <span class="hljs-name">myCanvas</span> = document.getElementById(<span class="hljs-string">'my-canvas'</span>);
+  <span class="hljs-name">myCanvas</span>.width = <span class="hljs-number">300</span>; <span class="hljs-comment">// myCanvas.width = windows.innerWidth;</span>
+  <span class="hljs-name">myCanvas</span>.height = <span class="hljs-number">100</span>;
+  <span class="fragment">let <span class="hljs-name">ctx</span> = <span class="hljs-name">myCanvas</span>.getContext(<span class="hljs-string">'2d'</span>);</span>
+						
+						</code></pre>
+				<h4 class="fragment"><span>Let's draw it </span></h4>
+			</section>
+			<section>
+				<h2>Drawing simple shapes</h2>
+				<p style="color: #66d9ef; font-size: 2.5 rem;">Prepare...</p>
+				<div style="text-align: left; padding-left: 70px; height: 400px;">
+					<p><span>beginPath();</span></p>
+					<p>closePath();</p>
+					<p><span>fillStyle = </span>'#ffffff'<span>;</span></p>
+					<p><span>strokeStyle = </span>'#ff0000'<span>;</span></p>
+					<p><span>lineWidth = </span>10<span>;</span></p>
+				</div>
+			</section>
+			<section>
+				<h2>Drawing simple shapes</h2>
+				<p style="color: #66d9ef; font-size: 2.5 rem;">Start...</p>
+				<div style="text-align: left; padding-left: 70px; height: 400px;">
+					<p><span>moveTo(</span>x, y<span>);</span></p>
+					<p>rect(x, y, width, height);</p>
+					<p>arc(centerX, centerY, radius, 0, 2 * Math.PI);</p>
+				</div>
+			</section>
+			<section>
+				<section>
+					<h2>Drawing simple shapes</h2>
+					<p style="color: #66d9ef; font-size: 2.5 rem;">Wait...</p>
+					<div style="text-align: left; padding-left: 70px; height: 400px;">
+						<p><span>lineTo(</span>x, y<span>);</span></p>
+						<p><span>arcTo(</span>cp1x, cp1y, cp2x, cp2y, radius<span>);</span></p>
+						<p><span>quadraticCurveTo(</span>cpx, cpy, x, y<span>);</span></p>
+						<p><span>bezierCurveTo(</span>cp1x, cp1y, cp2x, cp2y, x, y<span>);</span></p>
+					</div>
+				</section>
+				<section>
+					<h2>Drawing simple shapes</h2>
+					<p style="color: #66d9ef; font-size: 2.5 rem;">Wait...</p>
+					<div style="text-align: center; padding-left: 70px; height: 400px;">
+						<img src="assets/images/arcTo.jpg" height="300" alt="curvies"><img src="assets/images/Canvas_curves.png"
+							height="300" alt="curvies">
+					</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Drawing simple shapes</h2>
+					<p style="color: #66d9ef; font-size: 2.5 rem;">Draw!..</p>
+					<div style="text-align: left; padding-left: 70px; height: 400px;">
+						<p><span>fill();</span></p>
+						<p><span>strike();</span></p>
+						<p><span>clip();</span></p>
+						<p> </p>
+						<p> </p>
+					</div>
+				</section>
+				<section>
+					<h2>Drawing simple shapes</h2>
+					<p style="color: #66d9ef; font-size: 2.5 rem;">Draw!..</p>
+					<div style="text-align: left; height: 400px; width: 1000px;">
+
+						<pre><code class="smaller-code hljs stan visible" data-fragment-index="0"  data-noescape="" data-line-numbers="2-15">
+  <span class="hljs-name">ctx</span>.beginPath();
+  <span class="hljs-name">ctx</span>.rect(1, 3, 70, 70);
+  <span class="hljs-name">ctx</span>.fill();
+    
+  <span class="hljs-name">ctx</span>.beginPath();
+  <span class="hljs-name">ctx</span>.fillStyle=<span class="hljs-string">'yellow'</span>;
+  <span class="hljs-name">ctx</span>.arc(37, 37, 13, Math.PI / 7, -Math.PI / 7);
+  <span class="hljs-name">ctx</span>.lineTo(40, 37);
+  <span class="hljs-name">ctx</span>.fill();
+    
+  <span class="hljs-name">ctx</span>.beginPath();
+  <span class="hljs-name">ctx</span>.fillStyle =<span class="hljs-string">'black'</span>;
+  <span class="hljs-name">ctx</span>.arc(36, 30.5, 2.5, 0, 2 * Math.PI);
+  <span class="hljs-name">ctx</span>.fill();
+
+						</code></pre>
+					</div>
+				</section>
+				<section>
+					<h2>Drawing simple shapes</h2>
+					<p style="color: #66d9ef; font-size: 2.5 rem;">Draw!..</p>
+					<div style="height: 400px;">
+						<img src="assets/images/pack.JPG" height="100" style="border: none;" alt="curvies">
+					</div>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>path2D() object</h2>
+					<div style="text-align: left; padding-left: 70px; height: 400px; width: 1000px;">
+						<p><span>new Path2D();</span> // empty path object</p>
+						<p><span>new Path2D(path);</span> // copy from another Path2D object</p>
+						<p><span>new Path2D(d);</span> // path from SVG path data</p>
+						<p> </p>
+						<p> </p>
+					</div>
+				</section>
+				<section>
+					<h2>path2D() object</h2>
+					<h4><span>Using SVG paths</span></h4>
+					<div style="text-align: left; height: 400px; width: 1000px;">
+						<pre><code class="smaller-code hljs stan visible"   data-noescape="" data-line-numbers="2, 3">
+  let <span class="hljs-name">d</span> = new Path2D(<span class="hljs-string">'M 10 10 h 80 v 80 h -80 Z'</span>);
+  <span class="hljs-name">ctx</span>.fill(<span class="hljs-name">d</span>);
+	
+						</code></pre>
+					</div>
+				</section>
+			</section>
+			<section>
+				<h2>Thank you!</h2>
+				<div style="height: 100px;">
+					<h2>Q&A<span> /&gt</span></h2>
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+	<script src="js/shadows.js"></script>
+
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [{
+					src: 'plugin/markdown/marked.js'
+				},
+				{
+					src: 'plugin/markdown/markdown.js'
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true
+				}
+			]
+		});
+	</script>
+</body>
+
+</html>
