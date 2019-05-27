@@ -66,13 +66,13 @@
 				<section>
 
 					<h2>History</h2>
-					<p class="fragment"><span>2004</span> <strong>Apple</strong>, <strong>WebKit</strong> component for the
-						<strong>OS X Dashboard</strong> and <strong>Safary</strong> browser
+					<p class="fragment"><span>2004</span> <strong>Apple</strong>, part of<strong> WebKit</strong> component of
+						<strong> Mac OS X,</strong> for <strong>Dashboard</strong> widgets and <strong>Safary</strong> browser
 					</p>
 					<p class="fragment"><span>2005 – 2006</span>– adopted in <strong>Gecko</strong> and <strong>Opera</strong>
 						browsers
 					</p>
-					<p class="fragment">Web Hypertext Application Technology Working Group (<strong>WHATWG</strong>)
+					<p class="fragment"><strong>WHATWG</strong>
 						standardized
 						canvas for use on
 						new proposed specifications for next generation web technologies.
@@ -146,8 +146,6 @@
 				<img class="image" src="./assets/images/grid.png" height="300" style="margin: 0 0; border: none;" alt="canvas">
 			</section>
 
-
-
 			<section>
 				<section>
 					<h2>Create/resize canvas</h2>
@@ -204,20 +202,20 @@
 				<h2>Drawing simple shapes</h2>
 				<p style="color: #66d9ef; font-size: 2.5 rem;">Prepare...</p>
 				<div style="text-align: left; padding-left: 70px; height: 400px;">
-					<p><span>beginPath();</span></p>
-					<p>closePath();</p>
 					<p><span>fillStyle = </span>'#ffffff'<span>;</span></p>
 					<p><span>strokeStyle = </span>'#ff0000'<span>;</span></p>
 					<p><span>lineWidth = </span>10<span>;</span></p>
+					<p><span>beginPath();</span></p>
+					<p>closePath();</p>
 				</div>
 			</section>
 			<section>
 				<h2>Drawing simple shapes</h2>
 				<p style="color: #66d9ef; font-size: 2.5 rem;">Start...</p>
 				<div style="text-align: left; padding-left: 70px; height: 400px;">
+					<p><span>rect(</span>x, y, width, height<span>);</span></p>
+					<p><span>arc(</span>centerX, centerY, radius, 0, 2 * Math.PI<span>);</span></p>
 					<p><span>moveTo(</span>x, y<span>);</span></p>
-					<p>rect(x, y, width, height);</p>
-					<p>arc(centerX, centerY, radius, 0, 2 * Math.PI);</p>
 				</div>
 			</section>
 			<section>
@@ -226,7 +224,6 @@
 					<p style="color: #66d9ef; font-size: 2.5 rem;">Wait...</p>
 					<div style="text-align: left; padding-left: 70px; height: 400px;">
 						<p><span>lineTo(</span>x, y<span>);</span></p>
-						<p><span>arcTo(</span>cp1x, cp1y, cp2x, cp2y, radius<span>);</span></p>
 						<p><span>quadraticCurveTo(</span>cpx, cpy, x, y<span>);</span></p>
 						<p><span>bezierCurveTo(</span>cp1x, cp1y, cp2x, cp2y, x, y<span>);</span></p>
 					</div>
@@ -234,9 +231,8 @@
 				<section>
 					<h2>Drawing simple shapes</h2>
 					<p style="color: #66d9ef; font-size: 2.5 rem;">Wait...</p>
-					<div style="text-align: center; padding-left: 70px; height: 400px;">
-						<img src="assets/images/arcTo.jpg" height="300" alt="curvies"><img src="assets/images/Canvas_curves.png"
-							height="300" alt="curvies">
+					<div style="text-align: center; height: 400px;">
+						<img src="assets/images/Canvas_curves.png" height="300" alt="curvies">
 					</div>
 				</section>
 			</section>
@@ -246,7 +242,7 @@
 					<p style="color: #66d9ef; font-size: 2.5 rem;">Draw!..</p>
 					<div style="text-align: left; padding-left: 70px; height: 400px;">
 						<p><span>fill();</span></p>
-						<p><span>strike();</span></p>
+						<p><span>stroke();</span></p>
 						<p><span>clip();</span></p>
 						<p> </p>
 						<p> </p>
@@ -257,19 +253,24 @@
 					<p style="color: #66d9ef; font-size: 2.5 rem;">Draw!..</p>
 					<div style="text-align: left; height: 400px; width: 1000px;">
 
-						<pre><code class="smaller-code hljs stan visible" data-fragment-index="0"  data-noescape="" data-line-numbers="2-15">
+						<pre><code class="smaller-code hljs stan visible" data-fragment-index="0"  data-noescape="" data-line-numbers="1-21">
+  const <span class="hljs-name">myCanvas</span> = document.getElementById(<span class="hljs-string">'my-canvas'</span>);
+  <span class="hljs-name">myCanvas</span>.width = <span class="hljs-number">70</span>;
+  <span class="hljs-name">myCanvas</span>.height = <span class="hljs-number">70</span>;
+  const <span class="hljs-name">ctx</span> = <span class="hljs-name">myCanvas</span>.getContext(<span class="hljs-string">'2d'</span>);</span>
+							
   <span class="hljs-name">ctx</span>.beginPath();
-  <span class="hljs-name">ctx</span>.rect(1, 3, 70, 70);
+  <span class="hljs-name">ctx</span>.rect(0, 0, 70, 70);
   <span class="hljs-name">ctx</span>.fill();
-    
-  <span class="hljs-name">ctx</span>.beginPath();
+	
   <span class="hljs-name">ctx</span>.fillStyle=<span class="hljs-string">'yellow'</span>;
+  <span class="hljs-name">ctx</span>.beginPath();
   <span class="hljs-name">ctx</span>.arc(37, 37, 13, Math.PI / 7, -Math.PI / 7);
   <span class="hljs-name">ctx</span>.lineTo(40, 37);
   <span class="hljs-name">ctx</span>.fill();
-    
-  <span class="hljs-name">ctx</span>.beginPath();
+	
   <span class="hljs-name">ctx</span>.fillStyle =<span class="hljs-string">'black'</span>;
+  <span class="hljs-name">ctx</span>.beginPath();
   <span class="hljs-name">ctx</span>.arc(36, 30.5, 2.5, 0, 2 * Math.PI);
   <span class="hljs-name">ctx</span>.fill();
 
@@ -287,24 +288,25 @@
 			<section>
 				<section>
 					<h2>path2D() object</h2>
-					<div style="text-align: left; padding-left: 70px; height: 400px; width: 1000px;">
+					<img class="fragment" src="assets/images/path2d_browzers.JPG" height="200" style="border: none;" alt="curvies">
+					<div class="fragment" style="text-align: left; padding-left: 70px; height: 400px; width: 1000px;">
 						<p><span>new Path2D();</span> // empty path object</p>
 						<p><span>new Path2D(path);</span> // copy from another Path2D object</p>
 						<p><span>new Path2D(d);</span> // path from SVG path data</p>
-						<p> </p>
-						<p> </p>
 					</div>
 				</section>
 				<section>
 					<h2>path2D() object</h2>
 					<h4><span>Using SVG paths</span></h4>
-					<div style="text-align: left; height: 400px; width: 1000px;">
+					<div style="text-align: center; height: 400px; width: 1000px;">
 						<pre><code class="smaller-code hljs stan visible"   data-noescape="" data-line-numbers="2, 3">
   const <span class="hljs-name">d</span> = new Path2D(<span class="hljs-string">'M 10 10 h 80 v 80 h -80 Z'</span>);
   <span class="hljs-name">ctx</span>.fill(<span class="hljs-name">d</span>);
 	
 						</code></pre>
+
 					</div>
+
 				</section>
 			</section>
 			<section>
