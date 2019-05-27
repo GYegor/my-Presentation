@@ -72,7 +72,6 @@ Their default values are #000 (black).
 ---
 _9 - DRAWING SIMPLE SHAPES # START..._  
 
-
 - rect() adds a rectangle to the current path. Unlike SVG, <canvas\> only supports one primitive shape: rectangles. All other shapes must be created by combining one or more paths.
 - arc() adds a circular arc to the current path.
 For arc we should specify the center coordinates, radius and a start angle of 0 radians (0°) and an end angle of 2π radians (360°).
@@ -102,6 +101,7 @@ Here it is!
 
 ---
 _12 - path2D() OBJECT_  
+
 MDN Web Docs says;
 This is an experimental technology
 Check the Browser compatibility table carefully before using this in production. Hmm... Okey..
