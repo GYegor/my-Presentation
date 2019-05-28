@@ -102,9 +102,11 @@ Here it is!
 ---
 _12 - path2D() OBJECT_  
 
-MDN Web Docs says;
-This is an experimental technology
-Check the Browser compatibility table carefully before using this in production. Hmm... Okey..
+MDN Web Docs says:  
+this is an experimental technology
+Check the Browser compatibility table carefully before using this in production.  
+
+Hmm... Okey..
 
 
 What is it, the Path2D
