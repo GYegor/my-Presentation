@@ -37,7 +37,7 @@ Also canvas is used for photo manipulation, real-time video processing and many 
 _5 - WHAT IS CANVAS?_  
 
 Well as I said before, canvas itself is an HTML element which can be used to draw graphics, on the fly,via scripting (usually JavaScript). Canvas has width and height atributes. Default canvas size is 300 to 150 pixels.
-Also canvas has it's own coordinate system, which starts at the top-left corner. The X axis is directed down and the Y axis goes right.
+Also canvas has it's own coordinate system, which starts at the top-left corner. The Y axis is directed right and the Y axis goes down.
 
 ---
 _6 - CREATE/ RESIZE CANVAS_  
@@ -62,7 +62,7 @@ Now with the context in hand, we can draw anything we like.
 ---
 _8 - DRAWING SIMPLE SHAPES # PREPARE..._  
 
-Now we'll talk about some properties and methods of the CanvasRenderingContext2D interface in order they are used usually.
+Now we'll talk about some properties and methods of the CanvasRenderingContext2D interface in the order they are used usually.
 
 - fillStyle and strokeStyle specify the color, gradient, or pattern to use inside shapes and for the strokes (outlines) around shapes respectively.
 Their default values are #000 (black).
