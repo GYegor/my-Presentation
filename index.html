@@ -162,7 +162,7 @@
 						<h4><span>JavaScript</span></h4>
 						<pre><code class="smaller-code hljs stan visible" data-fragment-index="0"  data-noescape="" data-line-numbers="2-4">
   const <span class="hljs-name">myCanvas</span> = document.getElementById(<span class="hljs-string">'my-canvas'</span>);
-  <span class="hljs-name">myCanvas</span>.width = <span class="hljs-number">300</span>; <span class="hljs-comment">// myCanvas.width = windows.innerWidth;</span>
+  <span class="hljs-name">myCanvas</span>.width = <span class="hljs-number">300</span>; <span class="hljs-comment">// myCanvas.width = window.innerWidth;</span>
   <span class="hljs-name">myCanvas</span>.height = <span class="hljs-number">100</span>;
 					
 					</code></pre>
@@ -240,8 +240,8 @@
 					<h2>Drawing simple shapes</h2>
 					<p style="color: #66d9ef; font-size: 2.5 rem;">Draw!..</p>
 					<div style="text-align: left; padding-left: 70px; height: 400px;">
-						<p><span>fill();</span></p>
 						<p><span>stroke();</span></p>
+						<p><span>fill();</span></p>
 						<p><span>clip();</span></p>
 						<p> </p>
 						<p> </p>
@@ -255,7 +255,7 @@
   const <span class="hljs-name">myCanvas</span> = document.getElementById(<span class="hljs-string">'my-canvas'</span>);
   <span class="hljs-name">myCanvas</span>.width = <span class="hljs-number">70</span>;
   <span class="hljs-name">myCanvas</span>.height = <span class="hljs-number">70</span>;
-  const <span class="hljs-name">ctx</span> = <span class="hljs-name">myCanvas</span>.getContext(<span class="hljs-string">'2d'</span>);</span>
+  const <span class="hljs-name">ctx</span> = <span class="hljs-name">myCanvas</span>.getContext(<span class="hljs-string">'2d'<span>);</span>
 							
   <span class="hljs-name">ctx</span>.beginPath();
   <span class="hljs-name">ctx</span>.rect(0, 0, 70, 70);
